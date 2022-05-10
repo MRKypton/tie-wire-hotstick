@@ -168,188 +168,178 @@ const Home: NextPage = () => {
           </p>
         </div>
       </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
-          <div className={div_flex_box}>
-            <button
-              onClick={() => {
-                setis22(true);
-              }}
-              type="button"
-              className={`${
-                is22 === true ? btn_push : btn_normal
-              }transition duration-150 ease-in-out`}
-            >
-              22 kV
-            </button>
-            <button
-              onClick={() => {
-                setis22(false);
-              }}
-              type="button"
-              className={`${
-                is22 === false ? btn_push : btn_normal
-              }transition duration-150 ease-in-out`}
-            >
-              33 kV
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
-          <div className={div_flex_box}>
-            <button
-              onClick={() => {
-                setisColdeline(false);
-              }}
-              type="button"
-              className={`${
-                isColdeline === false ? btn_push : btn_normal
-              }transition duration-150 ease-in-out`}
-            >
-              Hotline
-            </button>
-            <button
-              onClick={() => {
-                setisColdeline(true);
-              }}
-              type="button"
-              className={`${
-                isColdeline === true ? btn_push : btn_normal
-              }transition duration-150 ease-in-out`}
-            >
-              Coldline
-            </button>
-          </div>
-        </div>
-      </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          <div className="font-bold text-xl mb-2 lg:text-center">
-            ขนาดสายไฟฟ้า(AL)
-          </div>
-          <div className={div_flex_box}>
-            {allConductors.map((n) => (
+      <div className={`mt-10 sm:mt-0 md:mt-0 lg:mt-0`}>
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
+            <div className={div_flex_box}>
               <button
-                key={n}
-                onClick={async () => {
-                  setconductor(n);
+                onClick={() => {
+                  setis22(true);
                 }}
                 type="button"
-                className={`${
-                  n === conductor ? btn_push : btn_normal
-                } transition duration-150 ease-in-out`}
+                className={`${is22 === true ? btn_push : btn_normal
+                  }transition duration-150 ease-in-out`}
               >
-                {n}
+                22 kV
               </button>
-            ))}
+              <button
+                onClick={() => {
+                  setis22(false);
+                }}
+                type="button"
+                className={`${is22 === false ? btn_push : btn_normal
+                  }transition duration-150 ease-in-out`}
+              >
+                33 kV
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          <div className="font-bold text-xl mb-2 lg:text-center">
-            ชนิดลูกถ้วย
-          </div>
-          <div className={div_flex_box}>
-            <button
-              onClick={() => {
-                setinsulator(`Pin`);
-              }}
-              type="button"
-              className={`${
-                insulator === `Pin` ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              Pin
-            </button>
-            <button
-              onClick={() => {
-                setinsulator(`Line Post`);
-              }}
-              type="button"
-              className={`${
-                insulator === `Line Post` ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              Line Post
-            </button>
-            <button
-              onClick={() => {
-                setinsulator(`Pin Post`);
-              }}
-              type="button"
-              className={`${
-                insulator === `Pin Post` ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              Pin Post
-            </button>
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
+            <div className={div_flex_box}>
+              <button
+                onClick={() => {
+                  setisColdeline(false);
+                }}
+                type="button"
+                className={`${isColdeline === false ? btn_push : btn_normal
+                  }transition duration-150 ease-in-out`}
+              >
+                Hotline
+              </button>
+              <button
+                onClick={() => {
+                  setisColdeline(true);
+                }}
+                type="button"
+                className={`${isColdeline === true ? btn_push : btn_normal
+                  }transition duration-150 ease-in-out`}
+              >
+                Coldline
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          <div className="font-bold text-xl mb-2 lg:text-center">
-            ชนิดโครงสร้าง
-          </div>
-          <div className={div_flex_box}>
-            <button
-              onClick={() => {
-                setisSingle(true);
-              }}
-              type="button"
-              className={`${
-                isSingle === true ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              ทางตรง
-            </button>
-            <button
-              onClick={() => {
-                setisSingle(false);
-              }}
-              type="button"
-              className={`${
-                isSingle === false ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              ทางโค้ง
-            </button>
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            <div className="font-bold text-xl mb-2 lg:text-center">
+              ขนาดสายไฟฟ้า(AL)
+            </div>
+            <div className={div_flex_box}>
+              {allConductors.map((n) => (
+                <button
+                  key={n}
+                  onClick={async () => {
+                    setconductor(n);
+                  }}
+                  type="button"
+                  className={`${n === conductor ? btn_push : btn_normal
+                    } transition duration-150 ease-in-out`}
+                >
+                  {n}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={div_box}>
-        <div className={div_box_bg}>
-          <div className="font-bold text-xl mb-2 lg:text-center">
-            มี Preformed Armor Rod หรือไม่
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            <div className="font-bold text-xl mb-2 lg:text-center">
+              ชนิดลูกถ้วย
+            </div>
+            <div className={div_flex_box}>
+              <button
+                onClick={() => {
+                  setinsulator(`Pin`);
+                }}
+                type="button"
+                className={`${insulator === `Pin` ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                Pin
+              </button>
+              <button
+                onClick={() => {
+                  setinsulator(`Line Post`);
+                }}
+                type="button"
+                className={`${insulator === `Line Post` ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                Line Post
+              </button>
+              <button
+                onClick={() => {
+                  setinsulator(`Pin Post`);
+                }}
+                type="button"
+                className={`${insulator === `Pin Post` ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                Pin Post
+              </button>
+            </div>
           </div>
-          <div className={div_flex_box}>
-            <button
-              onClick={() => {
-                setisPar(false);
-              }}
-              type="button"
-              className={`${
-                isPar === false ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              ไม่มี
-            </button>
-            <button
-              onClick={() => {
-                setisPar(true);
-              }}
-              type="button"
-              className={`${
-                isPar === true ? btn_push : btn_normal
-              } transition duration-150 ease-in-out`}
-            >
-              มี
-            </button>
+        </div>
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            <div className="font-bold text-xl mb-2 lg:text-center">
+              ชนิดโครงสร้าง
+            </div>
+            <div className={div_flex_box}>
+              <button
+                onClick={() => {
+                  setisSingle(true);
+                }}
+                type="button"
+                className={`${isSingle === true ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                ทางตรง
+              </button>
+              <button
+                onClick={() => {
+                  setisSingle(false);
+                }}
+                type="button"
+                className={`${isSingle === false ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                ทางโค้ง
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className={div_box}>
+          <div className={div_box_bg}>
+            <div className="font-bold text-xl mb-2 lg:text-center">
+              มี Preformed Armor Rod หรือไม่
+            </div>
+            <div className={div_flex_box}>
+              <button
+                onClick={() => {
+                  setisPar(false);
+                }}
+                type="button"
+                className={`${isPar === false ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                ไม่มี
+              </button>
+              <button
+                onClick={() => {
+                  setisPar(true);
+                }}
+                type="button"
+                className={`${isPar === true ? btn_push : btn_normal
+                  } transition duration-150 ease-in-out`}
+              >
+                มี
+              </button>
+            </div>
           </div>
         </div>
       </div>

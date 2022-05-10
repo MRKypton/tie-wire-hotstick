@@ -164,15 +164,7 @@ const Home: NextPage = () => {
       <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="1">Pin Type</option>
-            <option value="2">Line Post Type</option>
-            <option value="3">Pin Post Type</option>
-          </select> */}
+      
           <div className="flex space-x-2 overflow-auto px-6 py-4">
             <button
               onClick={() => {
@@ -247,6 +239,7 @@ const Home: NextPage = () => {
           <div className="flex space-x-2 overflow-auto px-6 py-4">
             {allConductors.map((n) => (
               <button
+                key={n}
                 onClick={async () => {
                   setconductor(n);
                 }}

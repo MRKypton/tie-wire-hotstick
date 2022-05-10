@@ -154,16 +154,16 @@ const Home: NextPage = () => {
   const btn_normal = `inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:text-white hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg `;
   const btn_push = `inline-block px-6 py-2.5 font-medium text-xs leading-tight uppercase rounded shadow-md bg-blue-700 shadow-lg outline-none ring-0 text-white active:bg-blue-800 active:shadow-lg `;
   const div_box = `flex rounded my-2 justify-center items-center`;
-  const div_flex_box = `flex space-x-3 px-6 py-4 justify-center overflow-auto`;
+  const div_flex_box = `flex flex-col space-y-3 sm:space-y-0 md:space-y-0 lg:space-y-0 sm:space-x-3 md:space-x-3 lg:space-x-3 sm:flex-row md:flex-row lg:flex-row items-center justify-center`;
   const div_box_bg = `w-full md:w-full lg:w-full px-6 py-4 bg-gray-100 shadow-lg`;
   return (
     <div className=" flex-col space-y-4">
-      <div className={div_box}>
+      <div className={`${div_box}  sticky sm:sticky md:sticky lg:static`}>
         <div className={div_box_bg}>
           <div className=" font-bold text-center mb-2 text-4xl md:text-6xl lg:text-9xl">
             {`${currentLength}`} cm.
           </div>
-          <p className="text-grey-darker text-base text-center">
+          <p className="text-grey-darker text-base text-center ">
             Tie wire length
           </p>
         </div>

@@ -158,9 +158,9 @@ const Home: NextPage = () => {
   const div_box_bg = `w-full md:w-full lg:w-full px-6 py-4 bg-gray-100 shadow-lg`;
   return (
     <div className=" flex-col space-y-4">
-      <div className={`${div_box}  sticky sm:sticky md:sticky lg:static`}>
+      <div className={`${div_box} fixed sm:static md:static lg:static`}>
         <div className={div_box_bg}>
-          <div className=" font-bold text-center mb-2 text-4xl md:text-6xl lg:text-9xl">
+          <div className=" font-bold text-center mb-2 text-9xl md:text-6xl lg:text-9xl">
             {`${currentLength}`} cm.
           </div>
           <p className="text-grey-darker text-base text-center ">

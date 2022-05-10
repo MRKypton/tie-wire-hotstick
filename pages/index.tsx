@@ -19,6 +19,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     cal();
+    // eslint-disable-next-line
   }, [conductor, insulator, isSingle, isPar, isColdeline, is22]);
 
   function cal() {

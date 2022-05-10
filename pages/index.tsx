@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   const [insulator, setinsulator] = useState<string>(`Pin`);
   const [isSingle, setisSingle] = useState<boolean>(true);
   const [isPar, setisPar] = useState<boolean>(false);
-  const [isColdeline, setisColdeline] = useState<boolean>(true);
+  const [isColdeline, setisColdeline] = useState<boolean>(false);
   const [is22, setis22] = useState<boolean>(true);
   const [currentLength, setcurrentLength] = useState<number>(0);
 
@@ -151,27 +151,35 @@ const Home: NextPage = () => {
     }
   }
 
+  const btn_normal = `inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:text-white hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg `;
+  const btn_push = `inline-block px-6 py-2.5 font-medium text-xs leading-tight uppercase rounded shadow-md bg-blue-700 shadow-lg outline-none ring-0 text-white active:bg-blue-800 active:shadow-lg `;
+  const div_box = `flex rounded my-2 justify-center items-center`;
+  const div_flex_box = `flex space-x-3 px-6 py-4 justify-center overflow-auto`;
+  const div_box_bg = `w-full md:w-full lg:w-full px-6 py-4 bg-gray-100 shadow-lg`;
   return (
-    <div className="min-h-screen justify-center items-center">
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <p className="text-grey-darker text-base">Tie wire length</p>
-          <div className="font-bold text-center text-xl mb-2">
+    <div className=" flex-col space-y-4">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          <div className=" font-bold text-center mb-2 text-4xl md:text-6xl lg:text-9xl">
             {`${currentLength}`} cm.
           </div>
+          <p className="text-grey-darker text-base text-center">
+            Tie wire length
+          </p>
         </div>
       </div>
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div>
-      
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
+          <div className={div_flex_box}>
             <button
               onClick={() => {
                 setis22(true);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                is22 === true ? btn_push : btn_normal
+              }transition duration-150 ease-in-out`}
             >
               22 kV
             </button>
@@ -180,32 +188,27 @@ const Home: NextPage = () => {
                 setis22(false);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                is22 === false ? btn_push : btn_normal
+              }transition duration-150 ease-in-out`}
             >
               33 kV
             </button>
           </div>
         </div>
       </div>
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="1">Pin Type</option>
-            <option value="2">Line Post Type</option>
-            <option value="3">Pin Post Type</option>
-          </select> */}
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          {/* <div className="font-bold text-xl mb-2">เลือกชนิดการทำงาน</div> */}
+          <div className={div_flex_box}>
             <button
               onClick={() => {
                 setisColdeline(false);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                isColdeline === false ? btn_push : btn_normal
+              }transition duration-150 ease-in-out`}
             >
               Hotline
             </button>
@@ -214,29 +217,21 @@ const Home: NextPage = () => {
                 setisColdeline(true);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                isColdeline === true ? btn_push : btn_normal
+              }transition duration-150 ease-in-out`}
             >
               Coldline
             </button>
           </div>
         </div>
       </div>
-      <div className="max-w-md rounded shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">เลือกขนาดสายตัวนำไฟฟ้า</div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="35">35</option>
-            <option value="50">50</option>
-            <option value="70">70</option>
-            <option value="95">95</option>
-            <option value="120">120</option>
-            <option value="185">185</option>
-          </select> */}
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          <div className="font-bold text-xl mb-2 lg:text-center">
+            ขนาดสายไฟฟ้า(AL)
+          </div>
+          <div className={div_flex_box}>
             {allConductors.map((n) => (
               <button
                 key={n}
@@ -244,7 +239,9 @@ const Home: NextPage = () => {
                   setconductor(n);
                 }}
                 type="button"
-                className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                className={`${
+                  n === conductor ? btn_push : btn_normal
+                } transition duration-150 ease-in-out`}
               >
                 {n}
               </button>
@@ -252,25 +249,20 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">เลือกชนิดลูกถ้วย</div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="1">Pin Type</option>
-            <option value="2">Line Post Type</option>
-            <option value="3">Pin Post Type</option>
-          </select> */}
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          <div className="font-bold text-xl mb-2 lg:text-center">
+            ชนิดลูกถ้วย
+          </div>
+          <div className={div_flex_box}>
             <button
               onClick={() => {
                 setinsulator(`Pin`);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                insulator === `Pin` ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               Pin
             </button>
@@ -279,7 +271,9 @@ const Home: NextPage = () => {
                 setinsulator(`Line Post`);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                insulator === `Line Post` ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               Line Post
             </button>
@@ -288,68 +282,60 @@ const Home: NextPage = () => {
                 setinsulator(`Pin Post`);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                insulator === `Pin Post` ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               Pin Post
             </button>
           </div>
         </div>
       </div>
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">เลือกชนิดคอนสาย</div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="1">Pin Type</option>
-            <option value="2">Line Post Type</option>
-            <option value="3">Pin Post Type</option>
-          </select> */}
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
-            <button
-              onClick={() => {
-                setisSingle(false);
-              }}
-              type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              ทางโค้ง
-            </button>
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          <div className="font-bold text-xl mb-2 lg:text-center">
+            ชนิดโครงสร้าง
+          </div>
+          <div className={div_flex_box}>
             <button
               onClick={() => {
                 setisSingle(true);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                isSingle === true ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               ทางตรง
+            </button>
+            <button
+              onClick={() => {
+                setisSingle(false);
+              }}
+              type="button"
+              className={`${
+                isSingle === false ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
+            >
+              ทางโค้ง
             </button>
           </div>
         </div>
       </div>
-      <div className="max-w-xs rounded overflow-hidden shadow-lg my-2">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">
+      <div className={div_box}>
+        <div className={div_box_bg}>
+          <div className="font-bold text-xl mb-2 lg:text-center">
             มี Preformed Armor Rod หรือไม่
           </div>
-          {/* <select
-            className="w-full text-center"
-            name="conductor size"
-            id="conductorSize"
-          >
-            <option value="1">Pin Type</option>
-            <option value="2">Line Post Type</option>
-            <option value="3">Pin Post Type</option>
-          </select> */}
-          <div className="flex space-x-2 overflow-auto px-6 py-4">
+          <div className={div_flex_box}>
             <button
               onClick={() => {
                 setisPar(false);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                isPar === false ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               ไม่มี
             </button>
@@ -358,7 +344,9 @@ const Home: NextPage = () => {
                 setisPar(true);
               }}
               type="button"
-              className="inline-block px-6 py-2.5 bg-white text-blue-600 ring-2 ring-blue-600 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 focus:text-white active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              className={`${
+                isPar === true ? btn_push : btn_normal
+              } transition duration-150 ease-in-out`}
             >
               มี
             </button>

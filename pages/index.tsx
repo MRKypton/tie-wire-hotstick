@@ -185,7 +185,7 @@ const Home: NextPage = () => {
           <div className="mx-auto max-w-md">
             <div className="divide-y divide-gray-300/50">
               <div className=" pb-8 text-base leading-7 text-gray-600">
-                <p className="text-center font-bold uppercase text-6xl">
+                <p className="text-center font-bold uppercase text-5xl md:text-6xl lg:text-6xl">
                   tie wire calculator
                 </p>
                 <p className="text-center text-xl font-bold text-purple-500 hover:text-blue-600 duration-500 ease-in-out">
@@ -381,7 +381,7 @@ const Home: NextPage = () => {
               <div className="text-gray-700 pt-8 text-base font-normal leading-7">
                 <p
                   id="how_to_use"
-                  className=" mb-4 text-blue-600 bg-gray-200 rounded text-center text-2xl p-1"
+                  className=" mb-4 bg-blue-600 text-gray-200 rounded text-center text-2xl p-1"
                 >
                   How to use
                 </p>
